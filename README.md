@@ -1,10 +1,9 @@
 # Quest6 Navigating a Car
 
-Author: Ellen Lo, Lin Ma, Biyao Liang, 2018-12-14
 
 ## Summary
 
-In this quest, we were able to remote control a car built from quest 4 with motors and sensors through a web server. IR receiver is added to receive encoded message from beacons, and webcam plus raspberry pi is also attached on top of car to provide navigating view. 
+The goal of this project is to remote control a car built from quest 4 with motors and sensors through a web server. IR receiver is added to receive encoded message from beacons, and webcam plus raspberry pi is also attached on top of car to provide navigating view. 
 
 ## Evaluation Criteria
 
