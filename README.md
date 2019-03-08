@@ -1,9 +1,8 @@
-# Quest6 Navigating a Car
-
+# Iot-Remote-Control-Car
 
 ## Summary
 
-The goal of this project is to remote control a car built from quest 4 with motors and sensors through a web server. IR receiver is added to receive encoded message from beacons, and webcam plus raspberry pi is also attached on top of car to provide navigating view. 
+The goal of this project is to remotly control a car with four motors, ultrasonic sensors and IR sensor through a web server. An IR receiver is added to receive encoded message from beacons (esp32 microcontroller with IR sender which constently send encoded messages ), and webcam plus raspberry pi is also attached on top of car to provide navigating view. 
 
 ## Evaluation Criteria
 
