@@ -2,7 +2,7 @@
 
 ## Summary
 
-The goal of this project is to remotly control a car with four motors, ultrasonic sensors and IR sensor through a web server. An IR receiver is added to receive encoded message from beacons (esp32 microcontroller with IR sender which constently send encoded messages ), and webcam plus raspberry pi is also attached on top of car to provide navigating view. 
+The goal of this project is to remotly control a car with four motors, ultrasonic sensors and an IR receiver through a web server. An IR receiver is added to receive encoded messages from beacons (esp32 microcontrollers with IR senders which constently send encoded messages). A webcam and a Raspberry Pi is attached on top of car to provide a navigating view to the users. 
 
 ## Evaluation Criteria
 
