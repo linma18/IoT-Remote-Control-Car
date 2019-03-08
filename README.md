@@ -19,13 +19,13 @@ The goal of this project is to remotly control a car with four motors, ultrasoni
 
 ## Solution Design
 
-This quest consists of several components: web server for remote control, webcam for live view, IR receiver for message, ultrasonic sensor for collision avoidance. 
+This project consists of several components: a web server for remote control, a webcam for live navigating view, an IR receivers for receiving message, ultrasonic sensors for collision avoidance. 
 
 First, the remote control webpage was hosted on laptop with node.js. The page consists of 4 buttons, a video, and text revealing decoded message. Each button is bound with a unique 'click' event listener - it sends a POST request to node server (http://remotecontrol.ddns.net:1111/) with a json object with value of '0', '1', '2', and '3' representing forward, right, backward, and left directions respectively. Although Ajax module supports direct HTTP requests to HTTPD server on esp32, we ended up using XMLHttpRequest to post to node server which then sends requests to esp because we ran into CORS (Cross-Origins Resource Sharing) problems with Ajax. Therefore, node server sends a POST request which triggers car to move in the corresponding direction for 200ms. The integration of webcam is simple - it was done by simply setting the src attribute of video element on page to the ip address of pi plus port 8081. Obviously the webcam has to be started through ssh-ing into pi and enter prompt 'sudo service motion start'.
 
 Second, the IR receiver decodes the message by finding the start byte '0x1B' and recognizes the message's id with its next byte. Because there are 4 messages in total to be decoded and concatenated, its corresponding flag is set when received. When all 4 flags are set, the concatenated message is then sent to web server. Because we couldn't understand how to dynamically change html DOM elements on node server side, we instead have a timer on client side that posts GET request every second. Server only responds to this GET request when the complete message is decoded and combined and ignores it otherwise.
 
-Last, ultrasonic sensor integration was simple. We used the maxbotics sensor because we had much trouble debugging with the more accurate lidar, and it still works perfectly. It is called within drive forward function within esp32. When there is object in front (within 40cm range), even if user clicks forward button on webpage, the car wouldn't move forward to avoid collision. The sensor reading is obtained with ADC unit 1, since we know that ADC unit 2 input is impossible when WiFi is enabled on esp.
+Last, ultrasonic sensors integration was simple. We used the maxbotics sensor because we had much trouble debugging with the more accurate lidar, and it still works perfectly. It is called within drive forward function within esp32. When there is object in front (within 40cm range), even if user clicks forward button on webpage, the car wouldn't move forward to avoid collision. The sensor reading is obtained with ADC unit 1, since we know that ADC unit 2 input is impossible when WiFi is enabled on esp.
 
 ## Sketches and Photos
 
